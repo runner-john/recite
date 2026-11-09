@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>我专属的英语作文背诵模板</title>
+<meta name="description" content="我的英语作文背诵模板看板">
+<meta name="theme-color" content="#2f6fed">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="作文背诵">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --text: #1f2329;
+    --sub: #6b7280;
+    --line: #e5e7eb;
+    --accent: #2f6fed;
+    --accent-soft: #eaf1fe;
+    --blank: #fde9d9;
+    --blank-text: #b45309;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 40px;
+  }
+
+  /* 顶部 */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px;
+  }
+  .topbar-inner { max-width: 980px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .logo { font-size: 17px; font-weight: 800; letter-spacing: .3px; }
+  .logo .en { color: var(--accent); }
+  .count-badge {
+    font-size: 12px; color: var(--accent); background: var(--accent-soft);
+    padding: 3px 10px; border-radius: 12px; font-weight: 600; white-space: nowrap;
+  }
+  .tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 1; text-align: center; padding: 10px 8px; border-radius: 12px; font-size: 14px;
+    cursor: pointer; color: var(--sub); background: #f0f2f5; border: none; user-select: none;
+    transition: all .18s; font-weight: 600; white-space: nowrap;
+  }
+  .tab:active { transform: scale(.96); }
+  .tab.active { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(47,111,237,.28); }
+
+  .container { max-width: 980px; margin: 20px auto; padding: 0 16px; }
+  .section { display: none; }
+  .section.active { display: block; animation: fade .3s; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none;} }
+  .section-head { margin: 2px 0 18px; }
+  .section-head h2 { font-size: 21px; margin-bottom: 4px; }
+  .section-head p { font-size: 13px; color: var(--sub); }
+
+  /* 进度条 */
+  .progress-wrap { display: flex; align-items: center; gap: 10px; margin: 4px 0 16px; }
+  .progress-bar { flex: 1; height: 6px; background: #e8ebf0; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #2f6fed, #5b8bff); border-radius: 3px; transition: width .3s; }
+  .progress-label { font-size: 12px; color: var(--sub); white-space: nowrap; font-weight: 600; }
+
+  /* 卡片 */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    transition: box-shadow .18s, transform .18s;
+  }
+  .card:active { transform: scale(.99); }
+  .card.done { border-color: #bcd7ff; }
+  .card-head {
+    display: flex; align-items: center; gap: 12px; padding: 15px 18px; cursor: pointer; user-select: none;
+  }
+  .check {
+    width: 26px; height: 26px; border-radius: 50%; border: 2px solid #cfd4dc; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 15px;
+    transition: all .2s; cursor: pointer;
+  }
+  .card.done .check { background: #34c759; border-color: #34c759; }
+  .card-title { font-size: 16px; font-weight: 700; flex: 1; }
+  .card.done .card-title { color: #9aa3b0; text-decoration: line-through; }
+  .card-tag {
+    font-size: 11px; padding: 3px 10px; border-radius: 10px; background: var(--accent-soft);
+    color: var(--accent); font-weight: 700; white-space: nowrap;
+  }
+  .chev { color: #b0b5bd; transition: transform .25s; font-size: 14px; flex-shrink: 0; }
+  .card.open .chev { transform: rotate(180deg); }
+  .card-body { padding: 0 18px 18px; display: none; }
+  .card.open .card-body { display: block; }
+
+  /* 语料库句子 */
+  .sent {
+    padding: 14px 16px; border-radius: 12px; background: #fafbfd; border: 1px solid var(--line);
+    margin-bottom: 10px; position: relative; transition: all .18s; cursor: pointer;
+  }
+  .sent:active { background: #f0f4fb; }
+  .sent.done { opacity: .55; }
+  .sent .no {
+    display: inline-block; color: var(--accent); font-weight: 800; margin-right: 8px; font-size: 14px;
+  }
+  .sent .en { font-size: 16px; font-weight: 700; }
+  .sent.done .en { text-decoration: line-through; }
+
+  /* 作文模板段落 */
+  .block { margin-bottom: 12px; }
+  .block-label {
+    font-size: 12px; color: var(--sub); font-weight: 700; letter-spacing: .5px;
+    margin-bottom: 5px; display: flex; align-items: center; gap: 6px;
+  }
+  .block-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .block-text {
+    font-size: 16px; font-weight: 700; background: #fafbfd; border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 16px; white-space: pre-wrap;
+  }
+  .note {
+    font-size: 13px; color: var(--sub); background: #fff8e6; border: 1px solid #f5e6b8;
+    border-radius: 12px; padding: 11px 14px; margin: 6px 0 12px; line-height: 1.6;
+  }
+
+  /* 填空高亮（不再隐藏，仅高亮） */
+  .b {
+    background: var(--blank); color: var(--blank-text); padding: 1px 6px; border-radius: 6px;
+    font-weight: 800;
+  }
+
+  /* 书信 */
+  .letter { background: #fafbfd; border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .letter p { margin-bottom: 9px; font-size: 16px; font-weight: 700; }
+  .letter .sign { margin-top: 10px; color: var(--sub); font-style: italic; font-weight: 600; }
+
+  .footer { text-align: center; color: #b0b5bd; font-size: 12px; padding: 26px 0 10px; }
+
+  /* 安装提示 */
+  .install-tip {
+    display: none; align-items: center; gap: 10px; background: var(--accent); color: #fff;
+    padding: 11px 16px; border-radius: 12px; margin: 0 0 18px; cursor: pointer; font-size: 14px;
+    font-weight: 600; box-shadow: 0 4px 14px rgba(47,111,237,.3);
+  }
+  .install-tip.show { display: flex; }
+  .install-tip:active { opacity: .85; }
+  .install-tip .x { margin-left: auto; opacity: .8; font-size: 18px; line-height: 1; }
+
+  @media (min-width: 640px) {
+    .logo { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="logo"><span class="en">My</span> 专属英语作文背诵模板</div>
+      <div class="count-badge" id="countBadge">0 / 0 已背</div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-s="yuliao">语料库</div>
+      <div class="tab" data-s="dazuowen">大作文</div>
+      <div class="tab" data-s="xiaozuowen">小作文</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="install-tip" id="installTip">
+    <span>📲 添加到手机桌面，随时打开背诵</span>
+    <span class="x" id="installClose">×</span>
+  </div>
+
+  <!-- 语料库 -->
+  <div class="section active" id="s-yuliao">
+    <div class="section-head">
+      <h2>语料库 · 万能句式</h2>
+      <p>7 个图表作文万能句式，橙色字为可替换的填空提示。</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="py"></div></div>
+      <div class="progress-label" id="py-label">0 / 7</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">全部句式</div><div class="card-tag">7 句</div><span class="chev">▾</span>
+      </div>
+      <div class="card-body" id="yuliao-body"></div>
+    </div>
+  </div>
+
+  <!-- 大作文 -->
+  <div class="section" id="s-dazuowen">
+    <div class="section-head">
+      <h2>大作文 · 图表作文</h2>
+      <p>图表作文模板，橙色字为填空提示。</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="pd"></div></div>
+      <div class="progress-label" id="pd-label">0 / 3</div>
+    </div>
+    <div id="dazuowen-body"></div>
+  </div>
+
+  <!-- 小作文 -->
+  <div class="section" id="s-xiaozuowen">
+    <div class="section-head">
+      <h2>小作文 · 书信 / 通知</h2>
+      <p>9 类应用文模板，橙色字为填空提示。</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="px"></div></div>
+      <div class="progress-label" id="px-label">0 / 9</div>
+    </div>
+    <div id="xiaozuowen-body"></div>
+  </div>
+
+  <div class="footer">我专属的英语作文背诵模板</div>
+</div>
+
+<script>
+/* ================= 数据 ================= */
+const yuliao = [
+  "The reason why 【名词短语：图表的核心现象或趋势】 is that, along with the rapid growth of the economy, the public incomes have also improved significantly, which makes people 【形容词/动词不定式：人们愿意去做某事/有能力做某事】.",
+  "Nowadays, in contemporary society, with the advent of 【名词短语：某时代背景或社会条件】, a growing number of people have realized the value of 【名词短语：某核心观念或事物】. 【完整主谓宾句子：描述客观的社会变化或现状】, which naturally brings 【名词短语：带来的结果或影响】.",
+  "The advent of the phenomenon of 【名词短语：具体现象】 can be attributed to the fact that, with the economy booming and society advancing, the rapid growth of personal wealth has laid a solid basis for individuals to 【动词原形：个人的追求或行为】, thus leading to 【名词短语：再次点题，该现象】.",
+  "The 【名词：某领域/市场/社会】 offers a wider range of choices and diverse paths to cater to the needs of modern individuals, which is shown as 【名词短语：图表对应的具体表现】.",
+  "Individuals in modern society demand more from a variety of 【名词复数：活动/服务/商品类型】 to satisfy their needs for 【名词短语：需求目标/心理诉求】.",
+  "The government has issued a series of favorable policies to promote 【名词短语：某领域】, which provides a solid guarantee for 【名词短语：某最终目标】.",
+  "This change is the result of China's rapid economic development. The relatively well-developed infrastructure in the city, as well as the better medical and educational standards, attracts 【填图表里的目标人群 / 产生的具体结果】."
+];
+
+const dazuowen = [
+  {
+    title: "动态图表（趋势变化）", tag: "line / bar",
+    sections: [
+      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / pie chart / table] above is the remarkable change in 【图表主题/描述对象】. During the period from 【起始时间】 to 【结束时间】, the 【描述对象A】 experienced a [dramatic / steady / slight] [upward / downward / fluctuating] trend. Specifically, it [stood at / started at] 【起点数据A】 in 【起始时间】, and then reached a peak/lowest point of 【极值数据A】 in 【极值时间】, and finally [climbed / dropped] to 【终点数据A】 in 【结束时间】. In contrast / Similarly, the 【描述对象B】 showed an [opposite / similar] pattern, [decreasing / increasing] from 【起点数据B】 in 【起始时间】 to 【终点数据B】 in 【结束时间】.", note: "💡 如果对象A只有两个时间点，直接删掉极值部分即可。如果对象B也是波动型，把后半句替换为：...pattern, [climbing/dropping] from 【起点数据B】 to a peak of 【极值数据B】 and then arriving at 【终点数据B】." },
+      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+    ]
+  },
+  {
+    title: "静态图表 · 多对象（占比分布）", tag: "pie / bar",
+    sections: [
+      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [pie chart / bar chart / table] above is the striking distribution of 【图表主题/描述对象】. Among all the categories, 【占比最高的数据名称】 holds the largest share, accounting for 【最高数据】%. The remaining categories, namely 【数据名称A】, 【数据名称B】 and 【数据名称C】, make up 【数据A】%, 【数据B】% and 【数据C】% respectively. Among them, 【占比最低的数据名称】 is the least significant category, with only 【最低数据】%. Overall, the figures vary noticeably across categories, with the leading category standing out from the rest." },
+      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+    ]
+  },
+  {
+    title: "静态图表 · 单对象（分类/时段）", tag: "line / bar",
+    sections: [
+      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / table] above is the distribution of 【描述对象】 across different categories/periods. Specifically, the proportion/number of 【描述对象】 stood at 【数据1】 in 【类别/年份1】. In 【类别/年份2】 and 【类别/年份3】, the corresponding figures were 【数据2】 and 【数据3】 respectively. It is worth noting that the figure reached its peak at 【最高数据】 in 【对应的类别/年份】. Overall, the figures differ noticeably across the categories/periods, and this variation is worth noting." },
+      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+    ]
+  }
+];
+
+const xiaozuowen = [
+  { title: "建议信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "Knowing that you 【对方的情况/需求】, I am writing to offer you some practical suggestions regarding 【具体事由】.",
+    "After careful consideration, I would like to propose the following suggestions. To begin with, it would be highly advisable for you to 【建议动作】, through which you can 【预期结果】. Furthermore, I highly recommend that you 【建议动作2】, which will undoubtedly 【预期结果2】. Last but not least, it is of great significance to 【建议动作3】, especially when 【特定情境】.",
+    "I sincerely hope that these suggestions will be of some help to you. Should you require further information, please feel free to contact me.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "邀请信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "Knowing that you are interested in 【话题，如: traditional Chinese culture】, I am writing to sincerely invite you to 【活动，如: a campus food festival】.",
+    "The event is scheduled to take place at 【时间】 in 【地点】. It will offer you a fantastic opportunity to 【活动核心内容，如: appreciate traditional tea and enjoy authentic Chinese cuisines】. Furthermore, you will have the chance to 【附加亮点，如: communicate with chefs and learn about cooking techniques】.",
+    "We are eagerly looking forward to your presence. Should you require further information, please feel free to contact me.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "感谢信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "I am writing to express my heartfelt gratitude for 【具体事由，如: your generous help during my stay in Beijing】.",
+    "Your kindness and support have been of immense value to me. Without your assistance, I would not have been able to 【对方帮助带来的结果，如: adapt to the new environment so smoothly】. I truly appreciate the time and effort you devoted to 【具体细节，如: showing me around and introducing local customs】.",
+    "Thank you once again for your generosity. I sincerely hope to have the opportunity to return the favor in the future.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "祝贺信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "Knowing that you 【对方成就，如: have been admitted to your dream graduate school】, I am writing to extend my warmest congratulations on 【事由，如: this remarkable achievement】.",
+    "I am fully aware of the tremendous effort you have devoted to 【过程，如: your academic pursuits】, and your perseverance has finally paid off. It is truly inspiring to witness your hard work translating into such a brilliant outcome. Please accept my sincere wishes for even greater success in 【未来方向，如: your future studies】.",
+    "Once again, congratulations on this well-deserved honor. If there is anything I can do to assist you in the next stage, please do not hesitate to let me know.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "Notice（通知）", tag: "Notice", body: [
+    "June 15, 2024",
+    "We are pleased to inform that 【组织/部门】 is going to hold 【活动名称】. The event is scheduled to take place at 【时间】 in 【地点】.",
+    "There are some specific requirements for the applicants. To begin with, 【要求1】. Furthermore, 【要求2】. Finally, 【要求3】.",
+    "Those who are interested are welcome to send your application to 【邮箱/联系方式】 before 【截止日期】. We are looking forward to your active participation.",
+    "The Student Union" ] },
+  { title: "咨询信（告知情况 + 征求建议）", tag: "Letter", body: [
+    "Dear 【收信人】,",
+    "Knowing that 【背景情况】, I am writing to introduce my situation and ask for your practical suggestions regarding 【咨询事项】.",
+    "After careful consideration, I would like to share 【要告知的内容】. To begin with, it would be highly advisable for me to 【要点1】, through which I can 【带来的好处】. Furthermore, I 【要点2】, which will undoubtedly 【带来的好处2】. Last but not least, it is of great significance for me to 【要点3】, especially when 【场景条件】.",
+    "I sincerely hope that you can offer me some advice on 【咨询主题】. Should you want to know anything else about me, please feel free to contact me.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "道歉信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "Knowing that you are upset about 【事件】, I am writing to make a sincere apology to you for my mistake.",
+    "After careful consideration, I would like to explain the reason. To begin with, 【简单解释原因】. Through carelessness, I failed to 【本该做到的事】. Furthermore, I have realized the inconvenience I have brought to you, which will undoubtedly affect your arrangement. Last but not least, it is of great significance for me to take remedial measures, especially when we keep good contact.",
+    "I sincerely hope that you can accept my apology. Should you have any other requirement for compensation, please feel free to contact me.",
+    "Yours sincerely,", "Li Ming" ] },
+  { title: "离职信", tag: "Letter", body: [
+    "Dear 【收信人姓名】,",
+    "Knowing that you need to know my work plan, I am writing to inform you of my decision to resign from my current position.",
+    "After careful consideration, I would like to state my reasons. To begin with, 【离职主要原因，如：I plan to prepare for postgraduate study】, through which I can pursue my academic goal. Furthermore, I really appreciate the guidance you have offered me, which will undoubtedly benefit me a lot. Last but not least, it is of great significance for me to complete the work handover carefully, especially when I leave the post.",
+    "I sincerely hope that my resignation will not cause much trouble. Should you need me to deal with anything about the handover, please feel free to contact me.",
+    "Yours sincerely,", "Li Ming" ] }
+];
+
+/* ================= 进度状态 ================= */
+const KEY = 'recite_progress_v1';
+let progress = {};
+try { progress = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ progress = {}; }
+function saveProgress(){ localStorage.setItem(KEY, JSON.stringify(progress)); }
+
+/* ================= 渲染工具 ================= */
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function renderBlanks(text){
+  let t = esc(text);
+  t = t.replace(/【([^】]+)】/g, '<span class="b">$1</span>');
+  t = t.replace(/\[([^\]]+)\]/g, '<span class="b">$1</span>');
+  return t;
+}
+
+/* 语料库 */
+const yuliaoBody = document.getElementById('yuliao-body');
+yuliao.forEach((s, i) => {
+  const key = 'y' + i;
+  const div = document.createElement('div');
+  div.className = 'sent' + (progress[key] ? ' done' : '');
+  div.dataset.key = key;
+  div.innerHTML = '<span class="no">' + (i+1) + '.</span><span class="en">' + renderBlanks(s) + '</span>';
+  yuliaoBody.appendChild(div);
+});
+
+/* 大作文 */
+const dazuowenBody = document.getElementById('dazuowen-body');
+dazuowen.forEach((item, i) => {
+  const key = 'd' + i;
+  const card = document.createElement('div');
+  card.className = 'card' + (progress[key] ? ' done' : '');
+  card.dataset.key = key;
+  let inner = '';
+  item.sections.forEach(sec => {
+    inner += '<div class="block"><div class="block-label">' + esc(sec.label) + '</div>';
+    if (sec.note) inner += '<div class="note">' + esc(sec.note) + '</div>';
+    inner += '<div class="block-text">' + renderBlanks(sec.text) + '</div></div>';
+  });
+  card.innerHTML =
+    '<div class="card-head"><div class="check">✓</div><div class="card-title">' + esc(item.title) + '</div><div class="card-tag">' + esc(item.tag) + '</div><span class="chev">▾</span></div>' +
+    '<div class="card-body">' + inner + '</div>';
+  dazuowenBody.appendChild(card);
+});
+
+/* 小作文 */
+const xiaozuowenBody = document.getElementById('xiaozuowen-body');
+xiaozuowen.forEach((item, i) => {
+  const key = 'x' + i;
+  const card = document.createElement('div');
+  card.className = 'card' + (progress[key] ? ' done' : '');
+  card.dataset.key = key;
+  let inner = '<div class="letter">';
+  item.body.forEach(p => { inner += '<p>' + renderBlanks(p) + '</p>'; });
+  inner += '</div>';
+  card.innerHTML =
+    '<div class="card-head"><div class="check">✓</div><div class="card-title">' + esc(item.title) + '</div><div class="card-tag">' + esc(item.tag) + '</div><span class="chev">▾</span></div>' +
+    '<div class="card-body">' + inner + '</div>';
+  xiaozuowenBody.appendChild(card);
+});
+
+/* ================= 交互 ================= */
+/* 交互统一用事件委托：绑定在 document 上，不受 DOM 改写/克隆影响 */
+document.addEventListener('click', (e) => {
+  const check = e.target.closest('.check');
+  if (check) {
+    const card = check.closest('.card');
+    if (card) toggleDone(card);
+    return;
+  }
+  const sent = e.target.closest('.sent');
+  if (sent) {
+    toggleSent(sent);
+    return;
+  }
+  const head = e.target.closest('.card-head');
+  if (head) {
+    head.parentElement.classList.toggle('open');
+    return;
+  }
+  const tab = e.target.closest('.tab');
+  if (tab) {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('s-' + tab.dataset.s).classList.add('active');
+    return;
+  }
+});
+
+function toggleDone(card){
+  const key = card.dataset.key;
+  progress[key] = !progress[key];
+  card.classList.toggle('done', !!progress[key]);
+  saveProgress();
+  updateCount();
+}
+function toggleSent(sent){
+  const key = sent.dataset.key;
+  progress[key] = !progress[key];
+  sent.classList.toggle('done', !!progress[key]);
+  saveProgress();
+  updateCount();
+}
+
+/* 进度统计 */
+function updateCount(){
+  const yl = yuliao.filter((_,i)=>progress['y'+i]).length;
+  const dz = dazuowen.filter((_,i)=>progress['d'+i]).length;
+  const xz = xiaozuowen.filter((_,i)=>progress['x'+i]).length;
+  const total = yuliao.length + dazuowen.length + xiaozuowen.length;
+  const doneTotal = yl + dz + xz;
+  document.getElementById('countBadge').textContent = doneTotal + ' / ' + total + ' 已背';
+  setBar('py', yl, yuliao.length, 'py-label');
+  setBar('pd', dz, dazuowen.length, 'pd-label');
+  setBar('px', xz, xiaozuowen.length, 'px-label');
+}
+function setBar(fillId, n, total, labelId){
+  const pct = total ? Math.round(n/total*100) : 0;
+  document.getElementById(fillId).style.width = pct + '%';
+  document.getElementById(labelId).textContent = n + ' / ' + total;
+}
+updateCount();
+
+/* ================= PWA 安装 ================= */
+let deferredPrompt = null;
+const installTip = document.getElementById('installTip');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installTip.classList.add('show');
+});
+installTip.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  }
+  installTip.classList.remove('show');
+});
+document.getElementById('installClose').addEventListener('click', (e) => {
+  e.stopPropagation();
+  installTip.classList.remove('show');
+});
+
+/* 注册 service worker */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
