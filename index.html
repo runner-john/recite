@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<html lang="zh-CN" data-page-node-id="DSKF7q2Np6URBVyI7ML8cj">
+<head data-page-node-id="nkHMNBcv58adW9hvOiWJy7">
+<meta charset="UTF-8" data-page-node-id="CrejCyypveVMHQykW77ZSx">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="E7cl2CvtNXLX7wTjsgVfix">
 <title>我专属的英语作文背诵模板</title>
-<meta name="description" content="我的英语作文背诵模板看板">
-<meta name="theme-color" content="#2f6fed">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="作文背诵">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="description" content="我的英语作文背诵模板看板" data-page-node-id="JrvNCJnKTi2d95PmaQjgen">
+<meta name="theme-color" content="#2f6fed" data-page-node-id="4ADWUNxJOrZSCZ2taGyf9m">
+<meta name="apple-mobile-web-app-capable" content="yes" data-page-node-id="7emErnOb6BNoy0q5fBeygq">
+<meta name="apple-mobile-web-app-status-bar-style" content="default" data-page-node-id="xgbw3Jqq0gAJXjglJZEQIV">
+<meta name="apple-mobile-web-app-title" content="作文背诵" data-page-node-id="VVcPjIfNov7RB7It1GTI0n">
+<link rel="manifest" href="manifest.json" data-page-node-id="GrH1rJf7ATFTfDyvrjO9Yp">
+<link rel="apple-touch-icon" href="icon-192.png" data-page-node-id="kCpChjOmPgnn0XsvdZf4LD">
+<link rel="icon" type="image/png" href="icon-192.png" data-page-node-id="ufqWo1tOHWJaYWEBgUD0HF">
 <style>
   :root {
     --bg: #f4f6fa;
@@ -116,6 +116,25 @@
   }
   .sent .en { font-size: 16px; font-weight: 700; }
   .sent.done .en { text-decoration: line-through; }
+  .sent .cn {
+    margin-top: 6px; font-size: 13px; color: var(--sub); line-height: 1.6;
+    border-top: 1px dashed var(--line); padding-top: 6px;
+  }
+
+  /* 分支（道歉信的原因/替代方案） */
+  .branch-list { margin-bottom: 12px; }
+  .branch { margin-bottom: 10px; }
+  .branch-label {
+    font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .branch-label::before { content: "◆"; font-size: 11px; }
+  .branch-items { list-style: none; padding: 0; margin: 0; }
+  .branch-items li {
+    font-size: 14.5px; font-weight: 600; background: #f0f4fb; border: 1px solid #dbe6fb;
+    border-radius: 8px; padding: 8px 12px; margin-bottom: 6px; line-height: 1.6;
+  }
+  .branch-items li .b { background: var(--blank); color: var(--blank-text); }
 
   /* 作文模板段落 */
   .block { margin-bottom: 12px; }
@@ -161,109 +180,112 @@
   }
 </style>
 </head>
-<body>
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <div class="logo"><span class="en">My</span> 专属英语作文背诵模板</div>
-      <div class="count-badge" id="countBadge">0 / 0 已背</div>
+<body data-page-node-id="r2JubmMJEu7WpqILb3dPK2">
+<div class="topbar" data-page-node-id="u1WPqYXzPgpyhywgFT5I48">
+  <div class="topbar-inner" data-page-node-id="bnmZfndgTGiPIcJqqRFQqE">
+    <div class="brand" data-page-node-id="hb0x1ROHCKw9fvDe5elXvl">
+      <div class="logo" data-page-node-id="LukJzYLSn2Pfc7Psqhsppu"><span class="en" data-page-node-id="8nh614RqttKlorhC0VI3ba">My</span> 专属英语作文背诵模板</div>
+      <div class="count-badge" id="countBadge" data-page-node-id="Zl9m2He6sSdz1fbTThPycv">0 / 0 已背</div>
     </div>
-    <div class="tabs">
-      <div class="tab active" data-s="yuliao">语料库</div>
-      <div class="tab" data-s="dazuowen">大作文</div>
-      <div class="tab" data-s="xiaozuowen">小作文</div>
+    <div class="tabs" data-page-node-id="FvpEj4QwPYO044B1C8KaSL">
+      <div class="tab active" data-s="yuliao" data-page-node-id="9rhEALBMdXCzTMCj8U96w2">语料库</div>
+      <div class="tab" data-s="dazuowen" data-page-node-id="JAioxiBIyByN51TsNOKI2y">大作文</div>
+      <div class="tab" data-s="xiaozuowen" data-page-node-id="MB2rTSmPpKvmJdEWC80e6U">小作文</div>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="install-tip" id="installTip">
-    <span>📲 添加到手机桌面，随时打开背诵</span>
-    <span class="x" id="installClose">×</span>
+<div class="container" data-page-node-id="T7ADfLiZx8HE4wobqBtnni">
+  <div class="install-tip" id="installTip" data-page-node-id="u6oOzqoT6GYsIWrBM0SoCW">
+    <span data-page-node-id="SEGSnn8bVVMJGYJuoxBwG2">📲 添加到手机桌面，随时打开背诵</span>
+    <span class="x" id="installClose" data-page-node-id="JxICW0lhBnhavzqQ2cLGmJ">×</span>
   </div>
 
   <!-- 语料库 -->
-  <div class="section active" id="s-yuliao">
-    <div class="section-head">
-      <h2>语料库 · 万能句式</h2>
-      <p>7 个图表作文万能句式，橙色字为可替换的填空提示。</p>
+  <div class="section active" id="s-yuliao" data-page-node-id="HWijlI03xKm8sj6BPwGlZO">
+    <div class="section-head" data-page-node-id="uPk0jDMS02s6cMsqHcKfVd">
+      <h2 data-page-node-id="wAfkLWcsOSVm1ZH2sxYLCn">语料库 · 万能句式</h2>
+      <p data-page-node-id="zrg5ojCRaD3myrSyXVFkMn">10 个图表作文万能句式，附中文翻译与适用场景，橙色字为可替换的填空提示。</p>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="py"></div></div>
-      <div class="progress-label" id="py-label">0 / 7</div>
+    <div class="progress-wrap" data-page-node-id="bq69au7HPA8OpQngcvUyYn">
+      <div class="progress-bar" data-page-node-id="UeHp9SZLcFTEDFsl3plVdL"><div class="progress-fill" id="py" data-page-node-id="RxFOJsTNdQRFFzsZyZMUI4"></div></div>
+      <div class="progress-label" id="py-label" data-page-node-id="SzssE9SZEjm7gtJHSNEjDM">0 / 7</div>
     </div>
-    <div class="card">
-      <div class="card-head">
-        <div class="card-title">全部句式</div><div class="card-tag">7 句</div><span class="chev">▾</span>
+    <div class="card" data-page-node-id="2RXUFf6eO7GJwRFDuGJT3x">
+      <div class="card-head" data-page-node-id="1dDODHWKzl5LGH568sqBUq">
+        <div class="card-title" data-page-node-id="GSgnuEY66LcPnA6Esk0qQF">全部句式</div><div class="card-tag" data-page-node-id="AbWVEDb2HZrlmkY57QtMUN">10 句</div><span class="chev" data-page-node-id="34KAjIBWOxcMGieoLhXxTO">▾</span>
       </div>
-      <div class="card-body" id="yuliao-body"></div>
+      <div class="card-body" id="yuliao-body" data-page-node-id="3OKb23kqycTUCseFmgx6Bs"></div>
     </div>
   </div>
 
   <!-- 大作文 -->
-  <div class="section" id="s-dazuowen">
-    <div class="section-head">
-      <h2>大作文 · 图表作文</h2>
-      <p>图表作文模板，橙色字为填空提示。</p>
+  <div class="section" id="s-dazuowen" data-page-node-id="bCoUkdLykDxzuDgukt3JC2">
+    <div class="section-head" data-page-node-id="YM6oSnGCRF3ZCXJZOZDrvi">
+      <h2 data-page-node-id="tWxN7odB0om3YW6AiU2UMu">大作文 · 图表作文</h2>
+      <p data-page-node-id="LdBrVKgV4I2IGgXQfHENMz">图表作文模板，橙色字为填空提示。</p>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="pd"></div></div>
-      <div class="progress-label" id="pd-label">0 / 3</div>
+    <div class="progress-wrap" data-page-node-id="Bp6AzedN3ifTj00yOHHGEK">
+      <div class="progress-bar" data-page-node-id="MjqBHDUKypCFtDHvnjXI4d"><div class="progress-fill" id="pd" data-page-node-id="tToJngC5iVMogzz9d0Hijv"></div></div>
+      <div class="progress-label" id="pd-label" data-page-node-id="d1UqikudG9VG10DU17rygR">0 / 3</div>
     </div>
-    <div id="dazuowen-body"></div>
+    <div id="dazuowen-body" data-page-node-id="tIY37J94SYQGD59IRF7idv"></div>
   </div>
 
   <!-- 小作文 -->
-  <div class="section" id="s-xiaozuowen">
-    <div class="section-head">
-      <h2>小作文 · 书信 / 通知</h2>
-      <p>9 类应用文模板，橙色字为填空提示。</p>
+  <div class="section" id="s-xiaozuowen" data-page-node-id="p6WXF0VapWIVXi0gGDvNVM">
+    <div class="section-head" data-page-node-id="w5HI491kMaDvBsXFE7N1Qb">
+      <h2 data-page-node-id="tH082i6YNSAwDeNFYWzjFB">小作文 · 书信 / 通知</h2>
+      <p data-page-node-id="VVH3fCbmAGs7BtMRBAIBPJ">9 类应用文模板，橙色字为填空提示。</p>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="px"></div></div>
-      <div class="progress-label" id="px-label">0 / 9</div>
+    <div class="progress-wrap" data-page-node-id="hychPYGKnuefkg9AMpjdjy">
+      <div class="progress-bar" data-page-node-id="hq8GAclKr9kCMODcF8EGW9"><div class="progress-fill" id="px" data-page-node-id="TIhGsJALSc1LN7OsEYTVwk"></div></div>
+      <div class="progress-label" id="px-label" data-page-node-id="kZC3hRLLs5S1f9x7tHHqtj">0 / 9</div>
     </div>
-    <div id="xiaozuowen-body"></div>
+    <div id="xiaozuowen-body" data-page-node-id="oRDkAGspM16Sl1MUNygohy"></div>
   </div>
 
-  <div class="footer">我专属的英语作文背诵模板</div>
+  <div class="footer" data-page-node-id="ZT7klzrW7gEygj7xO36D79">我专属的英语作文背诵模板</div>
 </div>
 
 <script>
 /* ================= 数据 ================= */
 const yuliao = [
-  "The reason why 【名词短语：图表的核心现象或趋势】 is that, along with the rapid growth of the economy, the public incomes have also improved significantly, which makes people 【形容词/动词不定式：人们愿意去做某事/有能力做某事】.",
-  "Nowadays, in contemporary society, with the advent of 【名词短语：某时代背景或社会条件】, a growing number of people have realized the value of 【名词短语：某核心观念或事物】. 【完整主谓宾句子：描述客观的社会变化或现状】, which naturally brings 【名词短语：带来的结果或影响】.",
-  "The advent of the phenomenon of 【名词短语：具体现象】 can be attributed to the fact that, with the economy booming and society advancing, the rapid growth of personal wealth has laid a solid basis for individuals to 【动词原形：个人的追求或行为】, thus leading to 【名词短语：再次点题，该现象】.",
-  "The 【名词：某领域/市场/社会】 offers a wider range of choices and diverse paths to cater to the needs of modern individuals, which is shown as 【名词短语：图表对应的具体表现】.",
-  "Individuals in modern society demand more from a variety of 【名词复数：活动/服务/商品类型】 to satisfy their needs for 【名词短语：需求目标/心理诉求】.",
-  "The government has issued a series of favorable policies to promote 【名词短语：某领域】, which provides a solid guarantee for 【名词短语：某最终目标】.",
-  "This change is the result of China's rapid economic development. The relatively well-developed infrastructure in the city, as well as the better medical and educational standards, attracts 【填图表里的目标人群 / 产生的具体结果】."
+  { en: "The reason why 【名词短语】 is that, along with the rapid growth of the economy, people's incomes have also improved significantly, which makes people 【形容词/动词不定式】.", cn: "【图表核心现象】的原因在于，随着经济的快速增长，人们的收入也显著提高，这使得人们【愿意做某事/有能力做某事】。（适用：经济类、消费类、生活品质提升类图表）" },
+  { en: "In contemporary society, with the advent of 【名词短语】, a growing number of people have realized the value of 【名词短语】. 【完整主谓宾句子】, which naturally brings 【名词短语】.", cn: "在当代社会，随着【某时代背景/条件】的到来，越来越多的人意识到了【某核心观念/事物】的价值。【描述社会变化或现状的句子】，这自然带来了【某种结果或影响】。（适用：观念转变类、社会发展趋势类图表）" },
+  { en: "The advent of the phenomenon of 【名词短语】 can be attributed to the fact that, with the economy booming and society advancing, the rapid growth of personal wealth has laid a solid basis for individuals to 【动词原形】, thus leading to 【名词短语】.", cn: "【具体现象】这一现象的出现可以归因于这样一个事实：随着经济繁荣和社会进步，个人财富的快速增长为个人【做某事】奠定了坚实的基础，从而导致【该现象】。（适用：宏观经济驱动的个人行为变化类图表）" },
+  { en: "The 【名词】 offers a wider range of choices and diverse paths to cater to the needs of modern individuals, which is reflected in 【名词短语】.", cn: "【某领域/市场/社会】提供了更广泛的选择和多样化的途径来满足现代人的需求，这具体体现在【图表对应的具体表现】中。（适用：多元化消费、服务升级、选择增加类图表）" },
+  { en: "Individuals in modern society demand more from a variety of 【名词复数】 to satisfy their needs for 【名词短语】.", cn: "现代社会的个人对各种【活动/服务/商品】提出了更高的要求，以满足他们对【需求目标/心理诉求】的需求。（适用：品质追求、精神需求、个性化消费类图表）" },
+  { en: "The government has issued a series of favorable policies to promote 【名词短语】, which provides a solid guarantee for 【名词短语】.", cn: "政府出台了一系列利好政策来促进【某领域】，这为【某最终目标】提供了坚实的保障。（适用：政策导向类图表，如环保、新能源、教育普及等）" },
+  { en: "This change is the result of China's rapid economic development. The relatively well-developed infrastructure in the city, as well as the better medical and educational standards, attracts 【目标人群 / 具体结果】.", cn: "这一变化是中国经济快速发展的结果。城市中相对完善的基础设施，以及更好的医疗和教育水平，吸引了【目标人群/导致了具体结果】。（适用：城镇化、人口流动、返乡、城市吸引力类图表）" },
+  { en: "The widespread application of the Internet and smart devices has fundamentally changed the way people live and work, providing unprecedented convenience for individuals to 【动词原形】.", cn: "互联网和智能设备的广泛应用从根本上改变了人们的生活和工作方式，为个人【做某事】提供了前所未有的便利。（适用：科技改变生活类图表，如网购、外卖、线上办公/教育、社交媒体等）" },
+  { en: "In the current fast-paced society, individuals are facing increasing pressure from work and daily life, which drives many of them to 【动词原形】 to ease their anxiety.", cn: "在当今快节奏的社会中，个人面临着来自工作和日常生活越来越大的压力，这促使许多人通过【做某事】来缓解焦虑。（适用：负面现象类图表，如熬夜、暴饮暴食、过度消费、心理亚健康等）" },
+  { en: "With the popularization of higher education and the continuous awakening of public awareness, an increasing number of people have come to realize the significance of 【名词/动名词】, thus changing their behaviors accordingly.", cn: "随着高等教育的普及和公众意识的不断觉醒，越来越多的人开始意识到【某事物】的重要性，从而相应地改变了他们的行为。（适用：健康意识、环保意识、文化素养、健身阅读类图表）" }
 ];
 
 const dazuowen = [
   {
     title: "动态图表（趋势变化）", tag: "line / bar",
     sections: [
-      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / pie chart / table] above is the remarkable change in 【图表主题/描述对象】. During the period from 【起始时间】 to 【结束时间】, the 【描述对象A】 experienced a [dramatic / steady / slight] [upward / downward / fluctuating] trend. Specifically, it [stood at / started at] 【起点数据A】 in 【起始时间】, and then reached a peak/lowest point of 【极值数据A】 in 【极值时间】, and finally [climbed / dropped] to 【终点数据A】 in 【结束时间】. In contrast / Similarly, the 【描述对象B】 showed an [opposite / similar] pattern, [decreasing / increasing] from 【起点数据B】 in 【起始时间】 to 【终点数据B】 in 【结束时间】.", note: "💡 如果对象A只有两个时间点，直接删掉极值部分即可。如果对象B也是波动型，把后半句替换为：...pattern, [climbing/dropping] from 【起点数据B】 to a peak of 【极值数据B】 and then arriving at 【终点数据B】." },
-      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
-      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / pie chart / table] above is the remarkable change in 【图表主题/描述对象】. During the period from 【起始时间】 to 【结束时间】, the 【描述对象A】 experienced a [dramatic / steady / slight] [upward / downward / fluctuating] trend. To be specific, it [stood at / started at] 【起点数据A】 in 【起始时间】, and then reached a peak/lowest point of 【极值数据A】 in 【极值时间】, and finally [climbed / dropped] to 【终点数据A】 in 【结束时间】. In contrast / Similarly, the 【描述对象B】 showed an [opposite / similar] pattern, [decreasing / increasing] from 【起点数据B】 in 【起始时间】 to 【终点数据B】 in 【结束时间】.", note: "💡 如果对象A只有两个时间点，直接删掉中括号里的极值部分即可。如果对象B也是波动型，把后半句替换为：...pattern, [climbing/dropping] from 【起点数据B】 to a peak of 【极值数据B】 and then arriving at 【终点数据B】." },
+      { label: "第二段 · 分析原因", text: "Undoubtedly, the purpose of the drawing is to show us that due attention should be paid to 【图表反映的核心现象】. (This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "From what has been discussed above, we may easily draw a conclusion that this trend is reasonable and inevitable to some extent. In the foreseeable future, this trend will become increasingly obvious, which will have far-reaching significance to and impact on our citizens and society. Only by 【你的核心措施（doing sth.）】 can we 【你的目标（do sth.）】." }
     ]
   },
   {
     title: "静态图表 · 多对象（占比分布）", tag: "pie / bar",
     sections: [
       { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [pie chart / bar chart / table] above is the striking distribution of 【图表主题/描述对象】. Among all the categories, 【占比最高的数据名称】 holds the largest share, accounting for 【最高数据】%. The remaining categories, namely 【数据名称A】, 【数据名称B】 and 【数据名称C】, make up 【数据A】%, 【数据B】% and 【数据C】% respectively. Among them, 【占比最低的数据名称】 is the least significant category, with only 【最低数据】%. Overall, the figures vary noticeably across categories, with the leading category standing out from the rest." },
-      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
-      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+      { label: "第二段 · 分析原因", text: "Undoubtedly, the purpose of the drawing is to show us that due attention should be paid to 【图表反映的核心】. (This distribution / This pattern / This phenomenon / This arrangement) is by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "From what has been discussed above, we may easily draw a conclusion that this trend is reasonable and inevitable to some extent. In the foreseeable future, this trend will become increasingly obvious, which will have far-reaching significance to and impact on our citizens and society. Only by 【你的核心措施（doing sth.）】 can we 【你的目标（do sth.）】." }
     ]
   },
   {
     title: "静态图表 · 单对象（分类/时段）", tag: "line / bar",
     sections: [
-      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / table] above is the distribution of 【描述对象】 across different categories/periods. Specifically, the proportion/number of 【描述对象】 stood at 【数据1】 in 【类别/年份1】. In 【类别/年份2】 and 【类别/年份3】, the corresponding figures were 【数据2】 and 【数据3】 respectively. It is worth noting that the figure reached its peak at 【最高数据】 in 【对应的类别/年份】. Overall, the figures differ noticeably across the categories/periods, and this variation is worth noting." },
-      { label: "第二段 · 分析原因", text: "(This trend / This change / This growth / These changes) (is / are) by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
-      { label: "第三段 · 结论", text: "In conclusion, this trend is reasonable and inevitable to some extent. Only by 【措施】 can we 【目标】." }
+      { label: "第一段 · 描述图表", text: "What is clearly and vividly presented in the [line chart / bar chart / table] above is the distribution of 【描述对象】 across different categories/periods. To be specific, the proportion/number of 【描述对象】 stood at 【数据1】 in 【类别/年份1】. In 【类别/年份2】 and 【类别/年份3】, the corresponding figures were 【数据2】 and 【数据3】 respectively. It is worth noting that the figure reached its peak at 【最高数据】 in 【对应的类别/年份】. Overall, the figures differ noticeably across the categories/periods, and this variation is worth noting." },
+      { label: "第二段 · 分析原因", text: "Undoubtedly, the purpose of the drawing is to show us that due attention should be paid to 【图表反映的核心】. (This distribution / This pattern / This phenomenon / This arrangement) is by no means accidental, stemming from a combination of factors. To begin with, 【原因1】. Furthermore, 【原因2】. In addition, 【原因3】. More significantly, 【原因4】." },
+      { label: "第三段 · 结论", text: "From what has been discussed above, we may easily draw a conclusion that this trend is reasonable and inevitable to some extent. In the foreseeable future, this trend will become increasingly obvious, which will have far-reaching significance to and impact on our citizens and society. Only by 【你的核心措施（doing sth.）】 can we 【你的目标（do sth.）】." }
     ]
   }
 ];
@@ -294,7 +316,6 @@ const xiaozuowen = [
     "Once again, congratulations on this well-deserved honor. If there is anything I can do to assist you in the next stage, please do not hesitate to let me know.",
     "Yours sincerely,", "Li Ming" ] },
   { title: "Notice（通知）", tag: "Notice", body: [
-    "June 15, 2024",
     "We are pleased to inform that 【组织/部门】 is going to hold 【活动名称】. The event is scheduled to take place at 【时间】 in 【地点】.",
     "There are some specific requirements for the applicants. To begin with, 【要求1】. Furthermore, 【要求2】. Finally, 【要求3】.",
     "Those who are interested are welcome to send your application to 【邮箱/联系方式】 before 【截止日期】. We are looking forward to your active participation.",
@@ -305,12 +326,26 @@ const xiaozuowen = [
     "After careful consideration, I would like to share 【要告知的内容】. To begin with, it would be highly advisable for me to 【要点1】, through which I can 【带来的好处】. Furthermore, I 【要点2】, which will undoubtedly 【带来的好处2】. Last but not least, it is of great significance for me to 【要点3】, especially when 【场景条件】.",
     "I sincerely hope that you can offer me some advice on 【咨询主题】. Should you want to know anything else about me, please feel free to contact me.",
     "Yours sincerely,", "Li Ming" ] },
-  { title: "道歉信", tag: "Letter", body: [
-    "Dear 【收信人姓名】,",
-    "Knowing that you are upset about 【事件】, I am writing to make a sincere apology to you for my mistake.",
-    "After careful consideration, I would like to explain the reason. To begin with, 【简单解释原因】. Through carelessness, I failed to 【本该做到的事】. Furthermore, I have realized the inconvenience I have brought to you, which will undoubtedly affect your arrangement. Last but not least, it is of great significance for me to take remedial measures, especially when we keep good contact.",
-    "I sincerely hope that you can accept my apology. Should you have any other requirement for compensation, please feel free to contact me.",
-    "Yours sincerely,", "Li Ming" ] },
+  { title: "道歉信", tag: "Letter",
+    branches: [
+      { label: "万能理由（填在 The primary reason... 处）", items: [
+        "突发疾病：an unexpected severe cold has forced me to stay in bed（一场重感冒迫使我卧床休息）",
+        "重要考试：I have to prepare for a vital exam（我必须准备一项重要考试）",
+        "临时任务：an urgent task was assigned to me by my supervisor（导师给我分配了紧急任务）"
+      ]},
+      { label: "万能替代方案（填在 I would like to suggest... 处）", items: [
+        "改期：rescheduling our meeting to next weekend（将会议改到下周末）",
+        "改地点：meeting at another place（换个地方见面）",
+        "网络沟通：having a video conference online instead（改为线上视频会议）",
+        "延期：postponing the event to a later date（将活动推迟到以后）"
+      ]}
+    ],
+    body: [
+      "Dear 【收信人姓名】,",
+      "I am writing to express my sincere apology for [canceling my visit], especially since you have kindly made arrangements for it.",
+      "The primary reason for this change is that 【原因】. As this is of great significance to my future development, I have no choice but to stay and prepare for it. To make up for the inconvenience, I would like to suggest 【替代方案】 if it is convenient for you.",
+      "Once again, I sincerely apologize for any inconvenience caused by my absence. I truly hope you can understand my situation and accept my heartfelt apology. If you have any questions, please feel free to contact me.",
+      "Yours sincerely,", "Li Ming" ] },
   { title: "离职信", tag: "Letter", body: [
     "Dear 【收信人姓名】,",
     "Knowing that you need to know my work plan, I am writing to inform you of my decision to resign from my current position.",
@@ -341,7 +376,9 @@ yuliao.forEach((s, i) => {
   const div = document.createElement('div');
   div.className = 'sent' + (progress[key] ? ' done' : '');
   div.dataset.key = key;
-  div.innerHTML = '<span class="no">' + (i+1) + '.</span><span class="en">' + renderBlanks(s) + '</span>';
+  div.innerHTML =
+    '<span class="no">' + (i+1) + '.</span><span class="en">' + renderBlanks(s.en) + '</span>' +
+    '<div class="cn">' + esc(s.cn) + '</div>';
   yuliaoBody.appendChild(div);
 });
 
@@ -371,7 +408,20 @@ xiaozuowen.forEach((item, i) => {
   const card = document.createElement('div');
   card.className = 'card' + (progress[key] ? ' done' : '');
   card.dataset.key = key;
-  let inner = '<div class="letter">';
+  let inner = '';
+  // 分支（道歉信的原因/替代方案）
+  if (item.branches) {
+    inner += '<div class="branch-list">';
+    item.branches.forEach(b => {
+      inner += '<div class="branch">';
+      inner += '<div class="branch-label">' + esc(b.label) + '</div>';
+      inner += '<ul class="branch-items">';
+      b.items.forEach(it => { inner += '<li>' + renderBlanks(it) + '</li>'; });
+      inner += '</ul></div>';
+    });
+    inner += '</div>';
+  }
+  inner += '<div class="letter">';
   item.body.forEach(p => { inner += '<p>' + renderBlanks(p) + '</p>'; });
   inner += '</div>';
   card.innerHTML =
